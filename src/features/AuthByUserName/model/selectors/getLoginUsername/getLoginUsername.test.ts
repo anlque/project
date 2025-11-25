@@ -1,16 +1,16 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getLoginUsername } from './getLoginUsername';
 
-describe('getLoginUsername', () => {
-    it('should return username', () => {
+describe('getLoginUsername.test', () => {
+    test('should return value', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
-                username: 'user',
+                username: '123123',
             },
         };
-        expect(getLoginUsername(state as StateSchema)).toEqual('user');
+        expect(getLoginUsername(state as StateSchema)).toEqual('123123');
     });
-    it('with empty state', () => {
+    test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getLoginUsername(state as StateSchema)).toEqual('');
     });

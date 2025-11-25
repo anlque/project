@@ -10,7 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
-import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -43,15 +43,17 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(async () => {
-        const result = await dispatch(loginByUserName({ username, password }));
+        const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
         }
     }, [onSuccess, dispatch, username, password]);
 
     return (
-        // eslint-disable-next-line i18next/no-literal-string
-        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+        <DynamicModuleLoader
+            removeAfterUnmount
+            reducers={initialReducers}
+        >
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('auth_blank')} />
                 {error && <Text text={t(error)} theme={TextTheme.ERROR} />}

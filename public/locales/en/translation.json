@@ -22,5 +22,24 @@
   "choose_country": "Choose the country",
   "no_comments": "There are no comments yet",
   "app_name": "Insights hub",
-  "create_article":"Create article"
+  "create_article": "Create new article",
+  "no_article": "Article not found",
+  "error_article": {
+    "": "Error while loading article"
+  },
+  "enter_comment": "Enter the comment text",
+  "send": "Send",
+  "search": "Search",
+  "ascending": "ascending",
+  "in": "in",
+  "descending": "descending",
+  "IT": "IT",
+  "economics": "Economics",
+  "all_articles": "All articles",
+  "science": "Science",
+  "sort_by": "Sort By",
+  "date_created": "created date",
+  "name": "name",
+  "views": "views",
+  "edit_article": "Edit article with ID = "
 }

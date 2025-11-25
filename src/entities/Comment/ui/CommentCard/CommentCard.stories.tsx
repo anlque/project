@@ -15,7 +15,7 @@ export const Normal = Template.bind({});
 Normal.args = {
     comment: {
         id: '1',
-        text: 'comment',
+        text: 'hello world',
         user: { id: '1', username: 'Vasya' },
     },
 };
@@ -24,7 +24,7 @@ export const Loading = Template.bind({});
 Loading.args = {
     comment: {
         id: '1',
-        text: 'comment',
+        text: 'hello world',
         user: { id: '1', username: 'Vasya' },
     },
     isLoading: true,

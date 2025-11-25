@@ -1,26 +1,24 @@
-import { ReactNode, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import cls from './Tabs.module.scss';
+import { memo, ReactNode, useCallback } from 'react';
 import { Card, CardTheme } from '../Card/Card';
+import cls from './Tabs.module.scss';
 
 export interface TabItem {
-   value: string;
-   content: ReactNode
+    value: string;
+    content: ReactNode;
 }
 
 interface TabsProps {
-   className?: string;
-   tabs: TabItem[];
-   value: string;
-   onTabClick: (tab: TabItem)=>void
+    className?: string;
+    tabs: TabItem[];
+    value: string;
+    onTabClick: (tab: TabItem) => void;
 }
 
 export const Tabs = memo((props: TabsProps) => {
     const {
-        className, tabs, value, onTabClick,
+        className, tabs, onTabClick, value,
     } = props;
-    const { t } = useTranslation();
 
     const clickHandle = useCallback((tab: TabItem) => () => {
         onTabClick(tab);

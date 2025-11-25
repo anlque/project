@@ -1,41 +1,35 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkConfig } from "app/providers/StoreProvider";
-import { User, userActions } from "entities/User";
-import { USER_LOCALSTORAGE_KEY } from "shared/const/localstorage";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { ThunkConfig } from 'app/providers/StoreProvider';
+import { User, userActions } from 'entities/User';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
-interface LoginByUserNameProps {
-  username: string;
-  password: string;
+interface LoginByUsernameProps {
+    username: string;
+    password: string;
 }
 
-export const loginByUserName = createAsyncThunk<
-  User,
-  LoginByUserNameProps,
-  ThunkConfig<string>
+export const loginByUsername = createAsyncThunk<
+    User,
+    LoginByUsernameProps,
+    ThunkConfig<string>
 >(
-  "login/loginByUserName",
-  async (authData, { dispatch, extra, rejectWithValue }) => {
-    try {
-      const response = await extra.api.post<User>(
-        "http://localhost:8000/login",
-        authData
-      );
+    'login/loginByUsername',
+    async (authData, thunkApi) => {
+        const { extra, dispatch, rejectWithValue } = thunkApi;
 
-      if (!response.data) {
-        throw new Error();
-      }
+        try {
+            const response = await extra.api.post<User>('/login', authData);
 
-      localStorage.setItem(
-        USER_LOCALSTORAGE_KEY,
-        JSON.stringify(response.data)
-      );
+            if (!response.data) {
+                throw new Error();
+            }
 
-      dispatch(userActions.setAuthData(response.data));
-
-      return response.data;
-    } catch (error) {
-      console.log(error);
-      return rejectWithValue("wrong_auth");
-    }
-  }
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+            dispatch(userActions.setAuthData(response.data));
+            return response.data;
+        } catch (e) {
+            console.log(e);
+            return rejectWithValue('wrong_auth');
+        }
+    },
 );

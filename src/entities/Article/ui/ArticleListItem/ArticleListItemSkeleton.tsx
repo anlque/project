@@ -10,23 +10,22 @@ interface ArticleListItemSkeletonProps {
     view: ArticleView;
 }
 
-export const ArticleListItemSkeleton = memo(({ className, view }: ArticleListItemSkeletonProps) => {
-    if (view === ArticleView.LIST) {
+export const ArticleListItemSkeleton = memo((props: ArticleListItemSkeletonProps) => {
+    const { className, view } = props;
+
+    if (view === ArticleView.BIG) {
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <Card>
+                <Card className={cls.card}>
                     <div className={cls.header}>
                         <Skeleton border="50%" height={30} width={30} />
-                        <Skeleton height={16} width={150} className={cls.username} />
-                        <Skeleton height={16} width={150} className={cls.date} />
+                        <Skeleton width={150} height={16} className={cls.username} />
+                        <Skeleton width={150} height={16} className={cls.date} />
                     </div>
-                    <Skeleton height={24} width={250} className={cls.title} />
-
+                    <Skeleton width={250} height={24} className={cls.title} />
                     <Skeleton height={200} className={cls.img} />
-
                     <div className={cls.footer}>
                         <Skeleton height={36} width={200} />
-
                     </div>
                 </Card>
             </div>
@@ -35,7 +34,7 @@ export const ArticleListItemSkeleton = memo(({ className, view }: ArticleListIte
 
     return (
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <Card>
+            <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <Skeleton width={200} height={200} className={cls.img} />
                 </div>

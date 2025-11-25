@@ -9,23 +9,20 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
 
 export const fetchNextArticlesPage = createAsyncThunk<
-void,
-void,
+    void,
+    void,
     ThunkConfig<string>
     >(
         'articlesPage/fetchNextArticlesPage',
         async (_, thunkApi) => {
-            const {
-                extra, rejectWithValue, getState, dispatch,
-            } = thunkApi;
+            const { getState, dispatch } = thunkApi;
             const hasMore = getArticlesPageHasMore(getState());
             const page = getArticlesPageNum(getState());
             const isLoading = getArticlesPageIsLoading(getState());
 
             if (hasMore && !isLoading) {
-                dispatch(fetchArticlesList({}));
-
                 dispatch(articlesPageActions.setPage(page + 1));
+                dispatch(fetchArticlesList({}));
             }
         },
     );

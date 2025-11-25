@@ -1,10 +1,11 @@
-@import "./reset";
-@import "./themes/dark";
-@import "./themes/normal";
-@import "./themes/orange";
-@import "./variables/global";
+@import "reset";
+@import "themes/dark";
+@import "themes/normal";
+@import "themes/orange";
+@import "variables/global";
 
-body {
+.app,
+.app_modal {
     font: var(--font-m);
     color: var(--primary-color);
 }
@@ -19,7 +20,7 @@ body {
 }
 
 *::-webkit-scrollbar {
-    width: 12px;               /* scrollbar width */
+    width: 12px;
     height: 8px;
 }
 
@@ -28,7 +29,7 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);    /* plag color */
+    background-color: var(--inverted-primary-color);    /* цвет плашки */
     border-radius: 20px;       /* plag rounding */
     border: 2px solid var(--primary-color);  /* padding around plag */
 }

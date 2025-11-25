@@ -1,12 +1,12 @@
 import { User } from 'entities/User';
 
-export const enum ArticleSortField {
+export enum ArticleSortField {
     VIEWS = 'views',
     TITLE = 'title',
-    CREATED = 'createdAt'
+    CREATED = 'createdAt',
 }
 
-export const enum ArticleBlockType {
+export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
     TEXT = 'TEXT',
@@ -18,49 +18,44 @@ export interface ArticleBlockBase {
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
-    type: ArticleBlockType.CODE
-    code: string
+    type: ArticleBlockType.CODE;
+    code: string;
 }
+
 export interface ArticleImageBlock extends ArticleBlockBase {
-    type: ArticleBlockType.IMAGE
-    src: string
-    title: string
+    type: ArticleBlockType.IMAGE;
+    src: string;
+    title: string;
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
-    type: ArticleBlockType.TEXT
+    type: ArticleBlockType.TEXT;
+    paragraphs: string[];
     title?: string;
-    paragraphs: string[]
 }
 
-export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
+export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
-export const enum ArticleType {
-    ALL='ALL',
+export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS'
 }
 
+export enum ArticleView {
+    BIG = 'BIG',
+    SMALL = 'SMALL',
+}
+
 export interface Article {
     id: string;
     title: string;
+    user: User;
     subtitle: string;
-    user: User
     img: string;
     views: number;
     createdAt: string;
     type: ArticleType[];
-    blocks: ArticleBlock[]
-}
-
-export interface ArticleDetailsSchema {
-    data?: Article;
-    isLoading: boolean;
-    error?: string
-}
-
-export const enum ArticleView {
-    LIST = 'LIST',
-    TILE = 'TILE'
+    blocks: ArticleBlock[];
 }

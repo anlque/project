@@ -1,4 +1,4 @@
-.LIST {
+.BIG {
     .views {
         margin-left: auto;
     }
@@ -39,7 +39,7 @@
     }
 }
 
-.TILE {
+.SMALL {
     width: 230px;
     transition: 0.2s;
     cursor: pointer;
@@ -60,16 +60,16 @@
         }
     }
 
-    .img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-    }
-
     .imageWrapper {
         width: 200px;
         height: 200px;
         position: relative;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
     }
 
     .infoWrapper {
@@ -79,7 +79,6 @@
     }
 
     .types p {
-        display: block;
         width: 115px;
         white-space: nowrap;
         overflow: hidden;

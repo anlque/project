@@ -1,43 +1,42 @@
-import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { Text } from 'shared/ui/Text/Text';
-import cls from './CommentList.module.scss';
-import { Comment } from '../../model/types/comment';
+import { useTranslation } from 'react-i18next';
+import { VStack } from 'shared/ui/Stack';
 import { CommentCard } from '../CommentCard/CommentCard';
+import { Comment } from '../../model/types/comment';
 
 interface CommentListProps {
-   className?: string;
-   comments?: Comment[];
-   isLoading?: boolean
+    className?: string;
+    comments?: Comment[];
+    isLoading?: boolean;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const { className, comments, isLoading } = props;
+    const { className, isLoading, comments } = props;
     const { t } = useTranslation();
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentList, {}, [className])}>
+            <VStack gap="16" max className={classNames('', {}, [className])}>
                 <CommentCard isLoading />
                 <CommentCard isLoading />
                 <CommentCard isLoading />
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(cls.CommentList, {}, [className])}>
+        <VStack gap="16" max className={classNames('', {}, [className])}>
             {comments?.length
-                ? comments?.map((comment) => (
+                ? comments.map((comment) => (
                     <CommentCard
-                        key={comment.id}
-                        className={cls.comment}
-                        comment={comment}
                         isLoading={isLoading}
+                        comment={comment}
+                        key={comment.id}
                     />
                 ))
-                : <Text text={t('no_comments')} />}
-        </div>
+                : <Text text={t('Комментарии отсутствуют')} />}
+        </VStack>
     );
 });

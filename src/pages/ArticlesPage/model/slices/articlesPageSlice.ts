@@ -1,12 +1,12 @@
-import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import {
-    Article, ArticleView, ArticleSortField, ArticleType,
+    Article, ArticleType, ArticleView, ArticleSortField,
 } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { SortOrder } from 'shared/types';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
@@ -16,14 +16,14 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-export const articlesPageSlice = createSlice({
+const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
         isLoading: false,
         error: undefined,
         ids: [],
         entities: {},
-        view: ArticleView.TILE,
+        view: ArticleView.SMALL,
         page: 1,
         hasMore: true,
         _inited: false,
@@ -47,16 +47,16 @@ export const articlesPageSlice = createSlice({
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload;
         },
-        setSearch: (state, action: PayloadAction<string>) => {
-            state.search = action.payload;
-        },
         setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
         },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
+        },
         initState: (state) => {
-            const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView || ArticleView.LIST;
+            const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
             state.view = view;
-            state.limit = view === ArticleView.LIST ? 4 : 9;
+            state.limit = view === ArticleView.BIG ? 4 : 9;
             state._inited = true;
         },
     },
@@ -90,4 +90,7 @@ export const articlesPageSlice = createSlice({
     },
 });
 
-export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice;
+export const {
+    reducer: articlesPageReducer,
+    actions: articlesPageActions,
+} = articlesPageSlice;

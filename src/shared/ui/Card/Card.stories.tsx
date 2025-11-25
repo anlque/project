@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import { Text } from '../Text/Text';
 import { Card } from './Card';
 
@@ -17,19 +15,5 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
-    children: <Text text="text text text" title="title" />,
+    children: <Text title="test" text="text text" />,
 };
-
-export const Dark = Template.bind({});
-
-Dark.args = {
-    children: <Text text="text text text" title="title" />,
-};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Orange = Template.bind({});
-
-Orange.args = {
-    children: <Text text="text text text" title="title" />,
-};
-Orange.decorators = [ThemeDecorator(Theme.ORANGE)];

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-// import AvatarImg from 'shared/assets/tests/avatar.jpeg';
+import { Currency } from 'entities/Currency';
+import avatar from 'shared/assets/tests/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -10,30 +10,27 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-        to: '/',
-    },
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template:ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
     data: {
-        first: 'Firstname',
-        lastname: 'Lastname',
-        age: 23,
-        currency: Currency.UAH,
-        country: Country.Ukraine,
-        city: 'City',
         username: 'Admin',
-        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg',
+        age: 22,
+        country: Country.Ukraine,
+        lastname: 'Lastname',
+        first: 'Firstname',
+        city: 'City',
+        currency: Currency.USD,
+        avatar,
     },
 };
 
-export const WithError = Template.bind({});
-WithError.args = {
-    error: 'error',
+export const withError = Template.bind({});
+withError.args = {
+    error: 'true',
 };
 
 export const Loading = Template.bind({});

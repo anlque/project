@@ -3,8 +3,8 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 
 export const fetchArticleRecommendations = createAsyncThunk<
-Article[],
-void,
+    Article[],
+    void,
     ThunkConfig<string>
     >(
         'articleDetailsPage/fetchArticleRecommendations',

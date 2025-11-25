@@ -1,20 +1,19 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import { getProfileData } from './getProfileData';
 
-describe('getProfileData test', () => {
-    it('should return counter value', () => {
+describe('getProfileData.test', () => {
+    test('should return error', () => {
         const data = {
             first: 'Firstname',
             lastname: 'Lastname',
-            age: 23,
-            currency: Currency.UAH,
+            age: 22,
+            currency: Currency.USD,
             country: Country.Ukraine,
             city: 'City',
             username: 'Admin',
         };
-
         const state: DeepPartial<StateSchema> = {
             profile: {
                 data,
@@ -22,8 +21,7 @@ describe('getProfileData test', () => {
         };
         expect(getProfileData(state as StateSchema)).toEqual(data);
     });
-
-    it('with empty state', () => {
+    test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getProfileData(state as StateSchema)).toEqual(undefined);
     });

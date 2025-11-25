@@ -1,9 +1,7 @@
-/* eslint-disable i18next/no-literal-string */
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 import { Button, ButtonTheme } from './Button';
 
-describe('Button test', () => {
+describe('Button', () => {
     test('Test render', () => {
         render(<Button>TEST</Button>);
         expect(screen.getByText('TEST')).toBeInTheDocument();

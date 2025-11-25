@@ -7,15 +7,15 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: {
-        to: '/',
-    },
 } as ComponentMeta<typeof Select>;
 
-const Template:ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    label: 'Укажите значение',
-    options: [{ value: '123', content: 'first' }, { value: '1234', content: 'second' }],
+    label: 'Set value',
+    options: [
+        { value: '123', content: 'First option' },
+        { value: '1234', content: 'Second option' },
+    ],
 };
