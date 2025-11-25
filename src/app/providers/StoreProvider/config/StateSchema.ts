@@ -1,4 +1,3 @@
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import {
@@ -16,7 +15,6 @@ import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { UISchema } from 'features/UI';
 
 export interface StateSchema {
-    counter: CounterSchema;
     user: UserSchema;
     ui: UISchema;
 

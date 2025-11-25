@@ -11,10 +11,10 @@ interface CountrySelectProps {
 }
 
 const options = [
-    { value: Country.Armenia, content: Country.Armenia },
-    { value: Country.Russia, content: Country.Russia },
-    { value: Country.Belarus, content: Country.Belarus },
-    { value: Country.Kazakhstan, content: Country.Kazakhstan },
+    { value: Country.Georgia, content: Country.Georgia },
+    { value: Country.England, content: Country.England },
+    { value: Country.Portugal, content: Country.Portugal },
+    { value: Country.Norway, content: Country.Norway },
     { value: Country.Ukraine, content: Country.Ukraine },
 ];
 
