@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { type JSX, memo, type SVGProps } from 'react';
 import cls from './Icon.module.scss';
 
 interface IconProps {
     className?: string;
-    Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+    Svg: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 }
 
 export const Icon = memo((props: IconProps) => {

@@ -4,8 +4,8 @@ import { Article } from 'entities/Article';
 import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
 
-const recommendationsAdapter = createEntityAdapter<Article>({
-    selectId: (article) => article.id,
+const recommendationsAdapter = createEntityAdapter({
+    selectId: (article: Article) => article.id,
 });
 
 export const getArticleRecommendations = recommendationsAdapter.getSelectors<StateSchema>(

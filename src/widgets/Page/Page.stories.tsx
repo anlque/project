@@ -1,17 +1,16 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Page } from './Page';
 
-export default {
-    title: 'shared/Page',
+const meta = {
+    title: 'widget/Page',
     component: Page,
-    argTypes: {
-        backgroundColor: { control: 'color' },
+} satisfies Meta<typeof Page>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+    args: {
+        children: null,
     },
-} as ComponentMeta<typeof Page>;
-
-const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
-
-export const Normal = Template.bind({});
-Normal.args = {
-
 };

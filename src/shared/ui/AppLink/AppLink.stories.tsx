@@ -1,56 +1,34 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
+
 import { AppLink, AppLinkTheme } from './AppLink';
 
-export default {
+const meta = {
     title: 'shared/AppLink',
     component: AppLink,
     argTypes: {
-        backgroundColor: { control: 'color' },
+        theme: {
+            control: { type: 'radio' },
+            options: [AppLinkTheme.PRIMARY, AppLinkTheme.SECONDARY],
+        },
+        to: {
+            control: 'text',
+        },
     },
     args: {
-        to: '/',
+        to: '/about',
+        children: 'About us',
     },
-} as ComponentMeta<typeof AppLink>;
+} satisfies Meta<typeof AppLink>;
 
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Text',
-    theme: AppLinkTheme.PRIMARY,
+export const Primary: Story = {
+    args: {},
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-    children: 'Text',
-    theme: AppLinkTheme.SECONDARY,
+export const Secondary: Story = {
+    args: {
+        theme: AppLinkTheme.SECONDARY,
+    },
 };
-
-export const Red = Template.bind({});
-Red.args = {
-    children: 'Text',
-    theme: AppLinkTheme.RED,
-};
-
-export const PrimaryDark = Template.bind({});
-PrimaryDark.args = {
-    children: 'Text',
-    theme: AppLinkTheme.PRIMARY,
-};
-PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const SecondaryDark = Template.bind({});
-SecondaryDark.args = {
-    children: 'Text',
-    theme: AppLinkTheme.SECONDARY,
-};
-SecondaryDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const RedDark = Template.bind({});
-RedDark.args = {
-    children: 'Text',
-    theme: AppLinkTheme.RED,
-};
-RedDark.decorators = [ThemeDecorator(Theme.DARK)];

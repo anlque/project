@@ -1,10 +1,14 @@
-import { Story } from '@storybook/react';
+import type { Decorator } from '@storybook/react';
 import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
 
-export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (
-    <ThemeProvider initialTheme={theme}>
-        <div className={`app ${theme}`}>
-            <StoryComponent />
-        </div>
-    </ThemeProvider>
-);
+export const ThemeDecorator: Decorator = (StoryComponent, context) => {
+    // eslint-disable-next-line react/destructuring-assignment
+    const theme = context.globals.theme as Theme;
+    return (
+        <ThemeProvider>
+            <div className={`app ${theme}`} style={{ padding: '10px' }}>
+                <StoryComponent />
+            </div>
+        </ThemeProvider>
+    );
+};

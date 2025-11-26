@@ -1,41 +1,13 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Sidebar } from './Sidebar';
 
-export default {
+const meta = {
     title: 'widget/Sidebar',
     component: Sidebar,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof Sidebar>;
+} satisfies Meta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [
-    StoreDecorator({
-        user: { authData: {} },
-    }),
-];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-        user: { authData: {} },
-    }),
-];
-
-export const NoAuth = Template.bind({});
-NoAuth.args = {};
-NoAuth.decorators = [
-    StoreDecorator({
-        user: {},
-    }),
-];
+export const Primary: Story = {};
