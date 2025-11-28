@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-webpack5';
+module.exports = (layer, componentName) => `import { Meta } from '@storybook/react-webpack5';
 
 import { ${componentName} } from './${componentName}';
 
@@ -13,4 +13,4 @@ export default meta;
 export const Primary = {
     args: {
     }
-};
+};`;
