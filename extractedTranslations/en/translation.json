@@ -1,5 +1,6 @@
 {
   "about_us": "about_us",
+  "admin_panel": "admin_panel",
   "app_name": "app_name",
   "asc": "asc",
   "auth_blank": "auth_blank",
@@ -18,9 +19,11 @@
   "enter_comment": "enter_comment",
   "enter_password": "enter_password",
   "enter_username": "enter_username",
+  "load_articles_error": "load_articles_error",
   "login": "login",
   "logout": "logout",
   "main_page": "main_page",
+  "no_access": "no_access",
   "not_found": "not_found",
   "page_error": "page_error",
   "profile_page": "profile_page",
@@ -44,10 +47,12 @@
   "your_name": "your_name",
   "your_surname": "your_surname",
   "your_username": "your_username",
+  "Комментарии": "Комментарии",
   "Комментарии отсутствуют": "Комментарии отсутствуют",
   "Попробуйте обновить страницу": "Попробуйте обновить страницу",
   "Произошла ошибка при загрузке профиля": "Произошла ошибка при загрузке профиля",
   "Произошла ошибка при загрузке статьи": {
     "": ""
-  }
+  },
+  "Статьи не найдены": "Статьи не найдены"
 }
