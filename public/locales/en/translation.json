@@ -1,6 +1,4 @@
 {
-  "Тестовый пример": "Test example",
-  "Перевод": "Translate",
   "lang": "English",
   "short_lang": "En",
   "not_found": "Page not found",
@@ -16,6 +14,7 @@
   "wrong_auth": "You entered wrong login or password",
   "logout": "Log out",
   "profile_page": "Profile page",
+  "admin_panel": "Admin Panel",
   "articles_page": "Articles",
   "article_details_page": "Article details",
   "choose_cur": "Choose the currency",
@@ -41,5 +40,7 @@
   "date_created": "created date",
   "name": "name",
   "views": "views",
-  "edit_article": "Edit article with ID = "
+  "edit_article": "Edit article with ID = ",
+  "no_access": "You have no access to this page",
+  "load_articles_error": "Error while loading articles"
 }
