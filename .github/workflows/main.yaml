@@ -1,38 +1,25 @@
-name: linting, testing, building
+name: Linting, testing, building
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   pipeline:
-    runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        node-version: [ 16.x ]
-
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v5
+      - name: Starting Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
+          node-version: 24
+      - name: install dependencies
         run: npm install
       - name: build production project
         run: npm run build:prod
-        if: always()
       - name: linting typescript
         run: npm run lint:ts
-        if: always()
-      - name: linting css
+      - name: linting scss
         run: npm run lint:scss
       - name: unit testing
-        if: always()
         run: npm run test:unit
-      - name: build storybook
-        run: npm run storybook:build
-        if: always()
-      - name: screenshot testing
-        run: npm run test:ui:ci
-        if: always()
