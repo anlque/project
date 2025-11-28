@@ -10,7 +10,7 @@ import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {
     id: '1',
-    first: 'first',
+    first: 'admin',
     lastname: 'admin',
     age: 465,
     currency: Currency.USD,
@@ -36,13 +36,13 @@ const options = {
 };
 
 describe('features/EditableProfileCard', () => {
-    test('Режим рид онли должен переключиться', async () => {
+    test('read only regime should turn on', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
         expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
     });
 
-    test('При отмене значения должны обнуляться', async () => {
+    test('values should reset on cancel', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
@@ -61,7 +61,7 @@ describe('features/EditableProfileCard', () => {
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('admin');
     });
 
-    test('Должна появиться ошибка', async () => {
+    test('error should appear', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
@@ -72,7 +72,7 @@ describe('features/EditableProfileCard', () => {
         expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
     });
 
-    test('Если нет ошибок валидации, то на сервер должен уйти PUT запрос', async () => {
+    test('if there aren`t validation errors, PUT request should be sent to server', async () => {
         const mockPutReq = jest.spyOn($api, 'put');
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
