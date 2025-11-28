@@ -12,6 +12,7 @@ export function buildPlugins({
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
+            inject: 'head',
         }),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
