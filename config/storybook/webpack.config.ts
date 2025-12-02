@@ -1,20 +1,18 @@
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
 import webpack from 'webpack';
-
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
-export default ({ config }: { config: webpack.Configuration }) => {
+export default ({ config }: {config: webpack.Configuration}) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
         entry: '',
-        // src: path.resolve(__dirname, '../', '../', 'src'),
         src: path.resolve(__dirname, '..', '..', 'src'),
         locales: '',
         buildLocales: '',
@@ -33,6 +31,15 @@ export default ({ config }: { config: webpack.Configuration }) => {
     });
     config!.module!.rules.push(buildCssLoader(true));
     config!.module!.rules.push(buildSvgLoader());
+    config!.resolve!.alias = {
+        ...(config!.resolve!.alias || {}),
+        '@': path.resolve(__dirname, '../../src'),
+    };
+    config!.plugins!.push(new webpack.DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify('https://testapi.ru'),
+        __PROJECT__: JSON.stringify('storybook'),
+    }));
 
     return config;
 };

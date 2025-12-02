@@ -5,14 +5,15 @@
 @use "variables/global";
 
 .app,
-.app_modal {
+.app_modal,
+.app_drawer {
     font: var(--font-m);
     color: var(--primary-color);
 }
 
 .app {
-    min-height: 100vh;
     background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .content-page {
@@ -29,7 +30,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);    /* цвет плашки */
+    background-color: var(--inverted-primary-color);
     border-radius: 20px;       /* plag rounding */
     border: 2px solid var(--primary-color);  /* padding around plag */
 }

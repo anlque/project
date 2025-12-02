@@ -23,6 +23,7 @@
   "app_name": "Insights hub",
   "create_article": "Create new article",
   "no_article": "Article not found",
+  "no_articles": "There are no articles found",
   "error_article": {
     "": "Error while loading article"
   },
@@ -42,5 +43,6 @@
   "views": "views",
   "edit_article": "Edit article with ID = ",
   "no_access": "You have no access to this page",
-  "load_articles_error": "Error while loading articles"
+  "load_articles_error": "Error while loading articles",
+  "close": "Close"
 }

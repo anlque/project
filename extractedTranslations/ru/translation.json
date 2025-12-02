@@ -24,6 +24,7 @@
   "logout": "logout",
   "main_page": "main_page",
   "no_access": "no_access",
+  "no_articles": "no_articles",
   "not_found": "not_found",
   "page_error": "page_error",
   "profile_page": "profile_page",
