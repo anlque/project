@@ -7,5 +7,6 @@ export default {
         'at-rule-no-unknown': null,
         'scss/at-rule-no-unknown': true,
         'number-max-precision': null,
+        'color-function-alias-notation': null,
     },
 };
