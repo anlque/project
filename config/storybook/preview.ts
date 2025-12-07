@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-webpack5';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
