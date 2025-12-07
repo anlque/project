@@ -1,1 +1,150 @@
-Entire react app from scratch with all configurations and foundation
+## Run project
+
+```
+npm install - install deps
+npm run start:dev or npm run start:dev:vite - start server + frontend project in dev mode
+```
+
+----
+
+## Scripts
+
+- `npm run start` - Start frontend project on webpack dev server
+- `npm run start:vite` - Start frontend project on vite
+- `npm run start:dev` - Start frontend project on webpack dev server + backend
+- `npm run start:dev:vite` - Start frontend project on vite + backend
+- `npm run start:dev:server` - Start backend server
+- `npm run build:prod` - Build in prod mode
+- `npm run build:dev` - Build in dev mode 
+- `npm run lint:ts` - Check ts files by linter
+- `npm run lint:ts:fix` - Fix ts files with linter
+- `npm run lint:scss` - Check scss files style by linter
+- `npm run lint:scss:fix` - Fix scss files style with linter
+- `npm run test:unit` - Start unit tests with jest
+- `npm run storybook` - Start Storybook
+- `npm run storybook:build` - Build storybook 
+- `npm run prepare` - Pre-commit hooks
+- `npm run generate:slice` - Script for FSD slices generation
+
+----
+
+## Project architecture
+
+Project is written based on Feature sliced design methodology 
+
+Methodology documentation - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+
+----
+
+## Work with translations
+
+Lib i18next is used for translations.
+Translation files are stored inw public/locales.
+
+For comfort work recommend set up plugin for webstorm/vscode
+
+i18next documentation - [https://react.i18next.com/](https://react.i18next.com/)
+
+----
+
+## Tests
+
+4 types of tests are used in the project:
+1) Usual unit tests on jest - `npm run test:unit`
+2) Component tests with React testing library -`npm run test:unit`
+3) Screenshot tests with storybook (in progress) `npm run test:ui`
+4) e2e testing with Cypress (in progress) `npm run test:e2e`
+
+----
+
+## Linting
+
+Eslint is used for checking typescript code and stylelint for checking css files.
+
+##### Run linters
+- `npm run lint:ts` - Check ts files by linter
+- `npm run lint:ts:fix` - Fix ts files with linter
+- `npm run lint:scss` - Check scss files by style linter
+- `npm run lint:scss:fix` - Fix scss files with style linter
+
+----
+## Storybook
+
+For every component in the project there is storybook story.
+Server requests are mocked with storybook-addon-mock.
+
+File with story cases is created next to the component with extension .stories.tsx
+
+Start storybook with command:
+- `npm run storybook`
+
+Documentation [Storybook](/docs/storybook.md)
+
+----
+
+## Project configuration
+
+The project has 2 configs for developing:
+1. Webpack - ./config/build
+2. vite - vite.config.ts
+ 
+Both builders are adapted for main app features.
+
+All configs are stored in /config
+- /config/babel - babel
+- /config/build - webpack
+- /config/jest - testing
+- /config/storybook - storybook
+
+`scripts` folder has different scripts for refactor/simplifying writing code.
+
+----
+
+## CI pipeline & pre commit hooks
+
+Github actions config is in /.github/workflows.
+Ci runs all tests, building project & storybook, linting.
+
+Pre-commit hooks check project with linters, config is placed in /.husky
+
+----
+
+### Data management
+
+Data is managed by redux toolkit.
+Reusable entities should be normalised with EntityAdapter
+
+Server requests are sent with [RTK query](/src/shared/api/rtkApi.ts)
+
+DynamicModuleLoader is used for async reducers (to prevent adding them to common bundle)
+[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+
+----
+
+
+## Entities
+
+- [Article](/src/entities/Article)
+- [Comment](/src/entities/Comment)
+- [Counter](/src/entities/Counter)
+- [Country](/src/entities/Country)
+- [Currency](/src/entities/Currency)
+- [Notification](/src/entities/Notification)
+- [Profile](/src/entities/Profile)
+- [Rating](/src/entities/Rating)
+- [User](/src/entities/User)
+
+## Features
+
+- [addCommentForm](/src/features/addCommentForm)
+- [articleEditForm](/src/features/articleEditForm)
+- [articleRating](/src/features/articleRating)
+- [articleRecommendationsList](/src/features/articleRecommendationsList)
+- [AuthByUsername](/src/features/AuthByUsername)
+- [avatarDropdown](/src/features/avatarDropdown)
+- [editableProfileCard](/src/features/editableProfileCard)
+- [LangSwitcher](/src/features/LangSwitcher)
+- [notificationButton](/src/features/notificationButton)
+- [profileRating](/src/features/profileRating)
+- [ThemeSwitcher](/src/features/ThemeSwitcher)
+- [UI](/src/features/UI)

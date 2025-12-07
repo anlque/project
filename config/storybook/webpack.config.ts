@@ -2,8 +2,8 @@ import webpack from 'webpack';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
-import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';
+import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,8 +32,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config!.module!.rules.push(buildCssLoader(true));
     config!.module!.rules.push(buildSvgLoader());
     config!.resolve!.alias = {
-        ...(config!.resolve!.alias || {}),
-        '@': path.resolve(__dirname, '../../src'),
+        ...config!.resolve!.alias,
+        '@': paths.src,
     };
     config!.plugins!.push(new webpack.DefinePlugin({
         __IS_DEV__: JSON.stringify(true),

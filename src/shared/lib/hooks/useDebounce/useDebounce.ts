@@ -1,6 +1,11 @@
 import { useCallback, useRef } from 'react';
 
-export function useDebounce(callback: (...args: any[])=> void, delay: number) {
+/**
+ * Hook that allows cancelling a previous function call until the delay expires
+ * @param callback
+ * @param delay - delay in ms
+ */
+export function useDebounce(callback: (...args: any[]) => void, delay: number) {
     const timer = useRef<any>(null);
     return useCallback((...args: any[]) => {
         if (timer.current) {
