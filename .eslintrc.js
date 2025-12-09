@@ -60,6 +60,10 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'object-curly-newline': 'off',
+        'operator-linebreak': 'off',
+        'implicit-arrow-linebreak': 'off',
+        'function-paren-newline': 'off',
     },
     globals: {
         __IS_DEV__: true,

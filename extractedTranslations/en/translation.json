@@ -25,6 +25,7 @@
   "main_page": "main_page",
   "no_access": "no_access",
   "no_articles": "no_articles",
+  "no_comments": "",
   "not_found": "not_found",
   "page_error": "page_error",
   "profile_page": "profile_page",
@@ -42,6 +43,7 @@
     "science": "science"
   },
   "views": "views",
+  "wrong_auth": "",
   "your_age": "your_age",
   "your_avatar": "your_avatar",
   "your_city": "your_city",
