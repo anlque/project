@@ -1,3 +1,4 @@
+import { Action } from '@reduxjs/toolkit';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ValidateProfileError } from '../../model/consts/consts';
@@ -64,7 +65,7 @@ describe('profileSlice.test', () => {
         };
 
         expect(
-            profileReducer(state as ProfileSchema, updateProfileData.pending as any),
+            profileReducer(state as ProfileSchema, updateProfileData.pending as Action),
         ).toEqual({
             isLoading: true,
             validateErrors: undefined,

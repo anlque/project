@@ -7,15 +7,15 @@ import '@/app/styles/index.scss';
 import './shared/config/i18n/i18n';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
 
-let domNode = document.getElementById('root');
+const container = document.getElementById('root');
 
-if (!domNode) {
-    domNode = document.createElement('div');
-    domNode.id = 'root';
-    document.body.appendChild(domNode);
+if (!container) {
+    throw new Error(
+        'Контейнер root не найден. НЕ удалось вмонтировать реакт приложение',
+    );
 }
 
-const root = createRoot(domNode);
+const root = createRoot(container);
 
 root.render(
     <BrowserRouter>
