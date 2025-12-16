@@ -65,6 +65,8 @@ module.exports = {
         'implicit-arrow-linebreak': 'off',
         'function-paren-newline': 'off',
         'react/jsx-wrap-multilines': 'off',
+        'react/no-unused-prop-types': 'warn',
+        'consistent-return': 'off',
     },
     globals: {
         __IS_DEV__: true,

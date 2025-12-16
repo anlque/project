@@ -21,23 +21,32 @@
   "enter_comment": "enter_comment",
   "enter_password": "enter_password",
   "enter_username": "enter_username",
+  "interface_option": "",
   "load_articles_error": "load_articles_error",
+  "loading_error": "",
   "login": "login",
   "logout": "logout",
   "main_page": "main_page",
+  "new": "",
   "no_access": "no_access",
   "no_articles": "no_articles",
   "no_comments": "",
   "not_found": "not_found",
+  "old": "",
   "page_error": "page_error",
+  "profile_error": "",
   "profile_page": "profile_page",
+  "profile_settings": "",
   "recommend": "recommend",
   "reload_page": "reload_page",
   "save": "save",
   "search": "search",
   "send": "send",
+  "settings": "",
+  "show_more": "",
   "sort_by": "sort_by",
   "title": "title",
+  "try_reload": "",
   "types": {
     "all": "all",
     "economics": "economics",
@@ -52,12 +61,23 @@
   "your_name": "your_name",
   "your_surname": "your_surname",
   "your_username": "your_username",
+  "{{count}} views_one": "",
+  "{{count}} views_other": "",
+  "Введите текст комментария": "",
   "Комментарии": "Комментарии",
   "Комментарии отсутствуют": "Комментарии отсутствуют",
+  "Отправить": "",
   "Попробуйте обновить страницу": "Попробуйте обновить страницу",
   "Произошла ошибка при загрузке профиля": "Произошла ошибка при загрузке профиля",
   "Произошла ошибка при загрузке статьи": {
     "": ""
   },
-  "Статьи не найдены": "Статьи не найдены"
+  "Статьи не найдены": "Статьи не найдены",
+  "Читать далее": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  }
 }

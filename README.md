@@ -121,6 +121,23 @@ DynamicModuleLoader is used for async reducers (to prevent adding them to common
 
 ----
 
+### Feature-flag management
+
+Feature flags are allowed to be used only within toggleFeatures helper
+It takes object with options:
+
+{
+name: feature-flag name,
+on: function that will run after turning on the feature 
+of: function that will run after turning off the feature
+}
+
+Use script remove-feature.ts to automatically delete the feature,
+it takes 2 args
+1. Feature-flag name
+2. Feature-flag state (on\off)
+
+----
 
 ## Entities
 

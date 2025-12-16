@@ -4,14 +4,9 @@
 @use "themes/orange";
 @use "variables/global";
 
-.app,
-.app_modal,
-.app_drawer {
+.app {
     font: var(--font-m);
     color: var(--primary-color);
-}
-
-.app {
     background: var(--bg-color);
     min-height: 100vh;
 }
@@ -33,11 +28,26 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--card-bg);        /* path color */
+    background: var(--light-bg-redesigned);        /* path color */
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);
+    background-color: var(--icon-redesigned);    /* plag color */
+    border-radius: 20px;       /* plag rounding */
+    border: 1px solid var(--accent-redesigned);  /* padding around plag */
+}
+
+.app *::-webkit-scrollbar {
+    width: 12px;               /* scrollbar width */
+    height: 8px;
+}
+
+.app *::-webkit-scrollbar-track {
+    background: var(--card-bg);        /* path color */
+}
+
+.app *::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color);    /* plag color */
     border-radius: 20px;       /* plag rounding */
     border: 2px solid var(--primary-color);  /* padding around plag */
 }
