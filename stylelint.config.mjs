@@ -8,5 +8,6 @@ export default {
         'scss/at-rule-no-unknown': true,
         'number-max-precision': null,
         'color-function-alias-notation': null,
+        'media-query-no-invalid': null,
     },
 };

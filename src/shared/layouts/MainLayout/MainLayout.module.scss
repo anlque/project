@@ -6,15 +6,14 @@
   grid-template-areas:
             'sidebar content rightbar';
   grid-template-columns: min-content 1fr 100px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   width: 100vw;
 }
 
 .sidebar {
   grid-area: sidebar;
   padding: 24px;
-  padding-right: 0px;
+  padding-right: 0;
   max-width: 284px;
 }
 
@@ -23,7 +22,7 @@
   max-width: 1200px;
   justify-self: center;
   padding: 24px;
-  padding-right: 0px;
+  padding-right: 0;
   width: 100%;
 }
 
@@ -52,7 +51,7 @@
   }
 
   .toolbar, .rightbar{
-    width: 0px;
+    width: 0;
   }
 
   .content {

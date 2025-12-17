@@ -11,22 +11,28 @@ $breakpoints: (
 
 @mixin respond-up($breakpoint) {
   $value: map.get($breakpoints, $breakpoint);
+
   @if $value {
     @media (min-width: #{$value}) {
       @content;
     }
-  } @else {
+  }
+
+ @else {
     @warn "No value found for breakpoint `#{$breakpoint}`";
   }
 }
 
 @mixin respond-down($breakpoint) {
   $value: map.get($breakpoints, $breakpoint);
+
   @if $value {
     @media (max-width: #{$value}) {
       @content;
     }
-  } @else {
+  }
+
+ @else {
     @warn "No value found for breakpoint `#{$breakpoint}`";
   }
 }
