@@ -1,3 +1,11 @@
+@use '@/app/styles/media' as media;
+
 .card {
   width: 264px;
+}
+
+@include media.respond-down(lg) {
+  .card {
+    width: 100%;
+  }
 }

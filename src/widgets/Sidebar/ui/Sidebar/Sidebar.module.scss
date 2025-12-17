@@ -46,6 +46,7 @@
 
 .SidebarRedesigned {
     background: var(--light-bg-redesigned);
+    overflow-x: hidden;
     width: 220px;
     height: 100%;
     border-radius: 32px;
@@ -62,8 +63,11 @@
     .collapseBtn {
         position: absolute;
         right: 0;
-        top: 50%;
+        top: 62%;
         z-index: 10;
+    }
+
+    .collapseBtnIcon {
         transform: rotate(90deg);
     }
 
@@ -94,7 +98,7 @@
         margin-left: 0;
     }
 
-    .collapseBtn {
+    .collapseBtnIcon {
         transform: rotate(-90deg);
     }
 }

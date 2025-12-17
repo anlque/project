@@ -88,7 +88,7 @@
       "id": "2",
       "title": "Python news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
+      "img": "https://admin.wac.co/uploads/Features_Of_Python_1_f4ccd6d9f7.jpg",
       "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -136,7 +136,7 @@
       "id": "4",
       "title": "Scala news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://etrainindia.com/wp-content/uploads/2022/03/scala.png",
+      "img": "https://raw.githubusercontent.com/OlegIlyenko/scala-icon/master/scala-icon.png",
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
@@ -160,7 +160,7 @@
       "id": "5",
       "title": "Golang news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://www.ardanlabs.com/images/training-landing/go/go-intro.svg",
+      "img": "https://www.softwebsolutions.com/wp-content/uploads/2020/10/golang-Programing.jpg",
       "views": 10222,
       "createdAt": "26.02.2020",
       "userId": "1",
@@ -208,7 +208,7 @@
       "id": "7",
       "title": "Ruby news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://www.gia.edu/images/80146.jpg",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIVdUxev706oG0AXiU7J__oryAveESm57WVQ&s",
       "views": 100,
       "createdAt": "21.02.2022",
       "userId": "1",
@@ -280,7 +280,7 @@
       "id": "10",
       "title": "Python news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
+      "img": "https://admin.wac.co/uploads/Features_Of_Python_1_f4ccd6d9f7.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -328,7 +328,7 @@
       "id": "12",
       "title": "Python news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "img": "https://admin.wac.co/uploads/Features_Of_Python_1_f4ccd6d9f7.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -376,7 +376,7 @@
       "id": "14",
       "title": "Python news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "img": "https://admin.wac.co/uploads/Features_Of_Python_1_f4ccd6d9f7.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -424,7 +424,7 @@
       "id": "16",
       "title": "Python news",
       "subtitle": "What's new in JS in 2022 year?",
-      "img": "https://www.hocktraining.com/home/getpicturethumbnail/830",
+      "img": "https://admin.wac.co/uploads/Features_Of_Python_1_f4ccd6d9f7.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -625,6 +625,12 @@
       "userId": "1",
       "text": "112",
       "id": "wSAhqy5"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "hjhk",
+      "id": "7mJRMVl"
     }
   ],
   "users": [
@@ -633,7 +639,14 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://i.ytimg.com/vi/Q6Nsvrnnug8/maxresdefault.jpg"
+      "avatar": "https://i.ytimg.com/vi/Q6Nsvrnnug8/maxresdefault.jpg",
+      "features": {
+        "isAppRedesigned": true
+      },
+      "jsonSettings": {
+        "isArticlesPageWasOpened": true,
+        "theme": "app_candy_theme"
+      }
     },
     {
       "id": "2",
@@ -653,7 +666,7 @@
       "country": "Ukraine",
       "city": "Lviv",
       "username": "admin",
-      "avatar": "https://i.imgflip.com/1gl4ru.jpg?a469920"
+      "avatar": "https://i.ytimg.com/vi/Q6Nsvrnnug8/maxresdefault.jpg"
     },
     {
       "id": "2",

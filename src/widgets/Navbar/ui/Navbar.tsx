@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Button as ButtonDeprecated,
@@ -17,6 +18,7 @@ import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
+import { smallerThanLg } from '@/shared/const/mediaQuery';
 
 interface NavbarProps {
     className?: string;
@@ -26,6 +28,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
+    const isSmallerThanLg = useMediaQuery(smallerThanLg);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -47,10 +50,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 feature="isAppRedesigned"
                 on={
                     <header className={classNames(mainClass, {}, [className])}>
-                        <HStack gap="16" className={cls.actions}>
-                            <NotificationButton />
-                            <AvatarDropdown />
-                        </HStack>
+                        {!isSmallerThanLg &&
+                            <HStack gap="4" className={cls.actions}>
+                                <NotificationButton />
+                                <AvatarDropdown />
+                            </HStack>}
+
                     </header>
                 }
                 off={

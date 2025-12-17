@@ -1,3 +1,5 @@
+@use '@/app/styles/media' as media;
+
 .ArticleDetailsPage {
     min-height: 100%;
 }
@@ -5,4 +7,16 @@
 .recommendations {
     flex-wrap: nowrap;
     overflow: auto hidden;
+}
+
+.layout {
+    display: flex !important;
+    flex-direction: row;
+}
+
+@include media.respond-down(lg) {
+    .layout {
+        flex-direction: column;
+    }
+
 }

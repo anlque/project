@@ -44,6 +44,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 feature="isAppRedesigned"
                 on={
                     <StickyContentLayout
+                        className={cls.layout}
                         content={
                             <Page
                                 className={classNames(

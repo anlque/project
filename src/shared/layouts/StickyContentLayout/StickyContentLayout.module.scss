@@ -1,3 +1,5 @@
+@use '@/app/styles/media' as media;
+
 .MainLayout {
   display: grid;
   grid-template-areas:
@@ -29,3 +31,25 @@
   height: fit-content;
 }
 
+@include media.respond-down(lg) {
+  .left,
+  .right {
+    position: static;
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .right {
+    order: 1;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+  .content {
+    order: 2;
+    padding: 0;
+  }
+}

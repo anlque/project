@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
@@ -20,6 +20,9 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
+import { NotificationButton } from '@/features/notificationButton';
+import { AvatarDropdown } from '@/features/avatarDropdown';
+import { smallerThanLg } from '@/shared/const/mediaQuery';
 
 interface ArticlesPageProps {
     className?: string;
@@ -31,9 +34,9 @@ const reducers: ReducersList = {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
+    const isSmallerThanLg = useMediaQuery(smallerThanLg);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
@@ -48,14 +51,25 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             feature="isAppRedesigned"
             on={
                 <StickyContentLayout
-                    left={<ViewSelectorContainer />}
+                    left={
+                        <>
+                            <ViewSelectorContainer />
+                            {isSmallerThanLg &&
+                                <div className={cls.avatarBlock}>
+                                    <NotificationButton />
+                                    <AvatarDropdown />
+                                </div>}
+
+                        </>
+                    }
                     right={<FiltersContainer />}
+                    className={cls.layout}
                     content={
                         <Page
                             data-testid="ArticlesPage"
                             onScrollEnd={onLoadNextPart}
                             className={classNames(
-                                cls.ArticlesPageRedesigned,
+                                cls.ArticlesPage,
                                 {},
                                 [className],
                             )}

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -19,6 +20,10 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { AvatarDropdown } from '@/features/avatarDropdown';
+import { NotificationButton } from '@/features/notificationButton';
+import cls from './EditableProfileCardHeader.module.scss';
+import { smallerThanLg } from '@/shared/const/mediaQuery';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
@@ -34,6 +39,7 @@ export const EditableProfileCardHeader = memo(
         const canEdit = authData?.id === profileData?.id;
         const readonly = useSelector(getProfileReadonly);
         const dispatch = useAppDispatch();
+        const isSmallerThanLg = useMediaQuery(smallerThanLg);
 
         const onEdit = useCallback(() => {
             dispatch(profileActions.setReadonly(false));
@@ -55,38 +61,47 @@ export const EditableProfileCardHeader = memo(
                         <HStack
                             max
                             justify="between"
-                            className={classNames('', {}, [className])}
+                            className={classNames(cls.EditableProfileCardHeader, {}, [className])}
                         >
                             <Text title={t('profile_page')} />
-                            {canEdit && (
-                                <div>
-                                    {readonly ? (
-                                        <Button
-                                            onClick={onEdit}
-                                            data-testid="EditableProfileCardHeader.EditButton"
-                                        >
-                                            {t('edit')}
-                                        </Button>
-                                    ) : (
-                                        <HStack gap="8">
+                            <div className={cls.actions}>
+                                {canEdit && (
+                                    <div>
+                                        {readonly ? (
                                             <Button
-                                                onClick={onCancelEdit}
-                                                data-testid="EditableProfileCardHeader.CancelButton"
-                                                color="error"
+                                                onClick={onEdit}
+                                                data-testid="EditableProfileCardHeader.EditButton"
                                             >
-                                                {t('decline')}
+                                                {t('edit')}
                                             </Button>
-                                            <Button
-                                                onClick={onSave}
-                                                data-testid="EditableProfileCardHeader.SaveButton"
-                                                color="success"
-                                            >
-                                                {t('save')}
-                                            </Button>
-                                        </HStack>
-                                    )}
-                                </div>
-                            )}
+                                        ) : (
+                                            <HStack gap="8">
+                                                <Button
+                                                    onClick={onCancelEdit}
+                                                    data-testid="EditableProfileCardHeader.CancelButton"
+                                                    color="error"
+                                                >
+                                                    {t('decline')}
+                                                </Button>
+                                                <Button
+                                                    onClick={onSave}
+                                                    data-testid="EditableProfileCardHeader.SaveButton"
+                                                    color="success"
+                                                >
+                                                    {t('save')}
+                                                </Button>
+                                            </HStack>
+                                        )}
+                                    </div>
+                                )}
+
+                                {isSmallerThanLg &&
+                                    <div className={cls.avatarBlock}>
+                                        <NotificationButton />
+                                        <AvatarDropdown />
+                                    </div>}
+
+                            </div>
                         </HStack>
                     </Card>
                 }

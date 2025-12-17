@@ -20,6 +20,7 @@ export const Avatar = ({ className, src, size = 100, alt }: AvatarProps) => {
         () => ({
             width: size,
             height: size,
+            objectFit: 'cover',
         }),
         [size],
     );

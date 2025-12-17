@@ -9,6 +9,7 @@ import { CountrySelect } from '@/entities/Country';
 import { ProfileCardProps } from '../ProfileCard/ProfileCard';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Text } from '@/shared/ui/redesigned/Text';
+import cls from './ProfileCardRedesigned.module.scss';
 
 export const ProfileCardRedesignedError = () => {
     const { t } = useTranslation();
@@ -76,7 +77,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                         <Avatar size={128} src={data?.avatar} />
                     </HStack>
                 )}
-                <HStack gap="24" max>
+                <HStack gap="24" max className={cls.container}>
                     <VStack gap="16" max>
                         <Input
                             value={data?.first}

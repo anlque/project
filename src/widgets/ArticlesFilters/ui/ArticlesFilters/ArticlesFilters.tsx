@@ -41,7 +41,7 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
     return (
         <Card
             className={classNames(cls.ArticlesFilters, {}, [className])}
-            padding="24"
+            padding="16"
         >
             <VStack gap="32">
                 <Input
@@ -59,6 +59,8 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
                 <ArticleSortSelector
                     order={order}
                     sort={sort}
+                    listClassName={cls.tabs}
+                    className={cls.tabs}
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort}
                 />

@@ -1,15 +1,20 @@
+@use '@/app/styles/media' as media;
+
 .MainLayout {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   grid-template-areas:
             'sidebar content rightbar';
   grid-template-columns: min-content 1fr 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100vw;
 }
-
 
 .sidebar {
   grid-area: sidebar;
-  padding: 32px;
+  padding: 24px;
+  padding-right: 0px;
   max-width: 284px;
 }
 
@@ -17,7 +22,8 @@
   grid-area: content;
   max-width: 1200px;
   justify-self: center;
-  padding: 32px;
+  padding: 24px;
+  padding-right: 0px;
   width: 100%;
 }
 
@@ -38,4 +44,19 @@
 .toolbar {
   height: 100%;
   width: 100%;
+}
+
+@include media.respond-down(lg) {
+  .sidebar, .content {
+    padding: 12px;
+  }
+
+  .toolbar, .rightbar{
+    width: 0px;
+  }
+
+  .content {
+    width: calc(100vw - var(--sidebar-width-collapsed));
+  }
+
 }

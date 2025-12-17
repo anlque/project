@@ -1,8 +1,15 @@
 @use "reset";
 @use "themes/dark";
 @use "themes/normal";
-@use "themes/orange";
+@use "themes/candy";
 @use "variables/global";
+@use "media";
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
 
 .app {
     font: var(--font-m);
@@ -23,7 +30,7 @@
 }
 
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
     height: 8px;
 }
 
@@ -38,7 +45,7 @@
 }
 
 .app *::-webkit-scrollbar {
-    width: 12px;               /* scrollbar width */
+    width: 6px;               /* scrollbar width */
     height: 8px;
 }
 

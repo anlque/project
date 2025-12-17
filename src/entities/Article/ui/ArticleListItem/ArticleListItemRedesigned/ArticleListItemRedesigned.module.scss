@@ -28,6 +28,7 @@
 
   .avatar {
     margin-left: 8px;
+    object-fit: cover;
   }
 }
 
@@ -41,5 +42,10 @@
   .textBlock {
     height: 72px;
     overflow: hidden;
+  }
+
+  .avatar {
+    margin-left: 8px;
+    object-fit: cover;
   }
 }

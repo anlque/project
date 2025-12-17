@@ -1,4 +1,5 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
@@ -11,6 +12,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
+import { smallerThanLg } from '@/shared/const/mediaQuery';
 
 interface SidebarProps {
     className?: string;
@@ -19,6 +21,7 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const sidebarItemsList = useSidebarItems();
+    const isSmallerThanLg = useMediaQuery(smallerThanLg);
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
@@ -35,6 +38,14 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             )),
         [collapsed, sidebarItemsList],
     );
+
+    useEffect(() => {
+        if (isSmallerThanLg) {
+            setCollapsed(true);
+        } else {
+            setCollapsed(false);
+        }
+    }, [isSmallerThanLg]);
 
     return (
         <ToggleFeatures
@@ -55,13 +66,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     <VStack role="navigation" gap="8" className={cls.items}>
                         {itemsList}
                     </VStack>
-                    <Icon
+                    {!isSmallerThanLg && <Icon
                         data-testid="sidebar-toggle"
                         onClick={onToggle}
-                        className={cls.collapseBtn}
+                        className={cls.collapseBtnIcon}
+                        btnClassName={cls.collapseBtn}
                         Svg={ArrowIcon}
                         clickable
-                    />
+                    />}
+
                     <div className={cls.switchers}>
                         <ThemeSwitcher />
                         <LangSwitcher short={collapsed} className={cls.lang} />

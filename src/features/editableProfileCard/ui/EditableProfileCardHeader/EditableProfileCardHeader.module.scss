@@ -1,0 +1,30 @@
+@use '@/app/styles/media' as media;
+
+.EditableProfileCardHeader {
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avatarBlock {
+  display: flex;
+  align-items: center;
+}
+
+@include media.respond-down(md) {
+  .EditableProfileCardHeader {
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+  }
+
+  .actions {
+    justify-content: space-between;
+  }
+
+}

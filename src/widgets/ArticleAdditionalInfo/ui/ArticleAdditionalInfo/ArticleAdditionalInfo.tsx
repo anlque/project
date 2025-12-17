@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleAdditionalInfo.module.scss';
 import { User } from '@/entities/User';
@@ -7,6 +8,7 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
+import { smallerThanLg } from '@/shared/const/mediaQuery';
 
 interface ArticleAdditionalInfoProps {
     className?: string;
@@ -20,10 +22,11 @@ export const ArticleAdditionalInfo = memo(
     (props: ArticleAdditionalInfoProps) => {
         const { className, author, createdAt, views, onEdit } = props;
         const { t } = useTranslation();
+        const isSmallerThanLg = useMediaQuery(smallerThanLg);
 
         return (
             <VStack
-                gap="32"
+                gap={isSmallerThanLg ? '8' : '32'}
                 className={classNames(cls.ArticleAdditionalInfo, {}, [
                     className,
                 ])}

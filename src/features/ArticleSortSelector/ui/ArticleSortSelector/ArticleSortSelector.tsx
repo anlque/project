@@ -12,6 +12,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleSortSelectorProps {
     className?: string;
+    listClassName?: string;
     sort: ArticleSortField;
     order: SortOrder;
     onChangeOrder: (newOrder: SortOrder) => void;
@@ -19,7 +20,7 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-    const { className, onChangeOrder, onChangeSort, order, sort } = props;
+    const { className, listClassName, onChangeOrder, onChangeSort, order, sort } = props;
     const { t } = useTranslation();
 
     const orderOptions = useMemo<SelectOption<SortOrder>[]>(
@@ -65,7 +66,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                         [className],
                     )}
                 >
-                    <VStack gap="8">
+                    <VStack gap="8" className={listClassName}>
                         <Text text={t('sort_by')} />
                         <ListBox
                             items={sortFieldOptions}

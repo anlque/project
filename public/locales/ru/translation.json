@@ -1,5 +1,5 @@
 {
-    "lang": "Русский",
+    "lang": "English",
     "short_lang": "Ру",
     "not_found": "Страница не найдена",
     "page_error": "Произошла непредвиденная ошибка",
@@ -30,15 +30,15 @@
     "enter_comment": "Введите текст комментария",
     "send": "Отправить",
     "search": "Поиск",
-    "ascending": "возрастанию",
+    "asc": "возрастанию",
     "in": "по",
-    "descending": "убыванию",
+    "desc": "убыванию",
     "IT": "IT",
     "economics": "Экономика",
     "all_articles": "Все статьи",
     "science": "Наука",
     "sort_by": "Сортировать по",
-    "date_created": "дате создания",
+    "created_at": "дате создания",
     "name": "название",
     "views": "просмотрам",
     "edit_article": "Редактировать статью с ID = ",
@@ -53,5 +53,13 @@
     "new": "Новый",
     "profile_settings": "Настройки профиля",
     "show_more": "Читать далее...",
-    "feedback_appear_soon": "Оценка статей скоро появится!"
+    "feedback_appear_soon": "Оценка статей скоро появится!",
+    "recommend": "Рекомендации",
+    "comments": "Комментарии",
+    "types": {
+        "all": "Все",
+        "it": "IT",
+        "economics": "Экономика",
+        "science": "Наука"
+    }
 }
